@@ -1,0 +1,247 @@
+*
+  margin: 0
+  padding: 0
+
+.wrapper
+  font-family: "Arial Nova"
+  width: 100%
+  overflow: hidden
+  background-color: grey
+  header
+    height: 70px
+    padding: 0 130px
+    background-color: white
+    display: flex
+    justify-content: space-between
+    align-items: center
+    font-size: 14px
+    .header_logo
+      display: flex
+      align-items: center
+      h1
+        margin: 0 0 0 10px
+        font-stretch: ultra-condensed
+        font-size: 25px
+    nav
+      width: 100%
+      display: flex
+      justify-content: end
+      a
+        margin: 0 35px 0 0
+    .header_right
+      margin-left: 20px
+      height: 70px
+      width: auto
+      display: flex
+      align-items: center
+      justify-content: space-between
+      border-left: 1px solid #F0EEEE
+      .burger-container
+        cursor: pointer
+        margin: 0 20px
+        .bar2
+          width: 20px
+          height: 2px
+          background-color: #333
+          margin: 6px 0 0 0
+          transition: 0.4s
+        .bar1
+          width: 30px
+          height: 2px
+          background-color: #333
+          margin: 6px 0 0 0
+          transition: 0.4s
+        .bar3
+          width: 30px
+          height: 2px
+          background-color: #333
+          margin: 6px 0 0 0
+          transition: 0.4s
+        .changeFirst
+          -webkit-transform: rotate(-45deg) translate(-8px, 8px)
+          transform: rotate(-45deg) translate(-4px, 7px)
+        .changeOpacity
+          opacity: 0
+        .changeThree
+          -webkit-transform: rotate(45deg) translate(-8px, -8px)
+          transform: rotate(45deg) translate(-4px, -7px)
+    .header_a-application
+      width: 150px
+      height: 40px
+      border-radius: 5px
+      display: flex
+      justify-content: center
+      align-items: center
+      background-color: #FEC110
+  .header_right_slideDown
+    display: none
+    position: absolute
+    z-index: 10
+    background-color: white
+    top: 70px
+    width: 100%
+    height: 618px
+    border-top: 1px solid #FED96A
+    padding: 40px 130px
+    box-sizing: border-box
+
+
+.main
+  display: grid
+  grid-template-columns: 1fr 780px
+  height: 650px
+  overflow: hidden
+  .main_left-container
+    background-color: #313232
+    width: 100%
+    padding: 75px 0 50px 130px
+    color: white
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+    font-size: 16px
+    .elem1, .elem2
+      font-size: 50px
+      font-weight: normal
+    .elem2
+      color: #FEC110
+      //margin: 20px 0 40px 0
+    .elem3, .elem5
+      color: #989898
+    .elem7-button
+      width: 240px
+      height: 60px
+      background-color: #FEC110
+      border-radius: 5px
+      display: flex
+      justify-content: center
+      align-items: center
+      color: black
+  .main_right-container
+    background-color: cadetblue
+    height: 650px
+    position: relative
+    overflow: hidden
+    .main_right_slider
+      position: absolute
+      transition: 0.2s
+    .main_right_arrow
+      position: absolute
+      bottom: 55px
+      left: 50px
+      button:hover
+        background-color: #FCFFD0
+      .main_right_arrow_left
+        width: 60px
+        height: 60px
+        border-radius: 100%
+        background-color: #FEC110
+        background-image: url("../img/arrow-left.png")
+        background-repeat: no-repeat
+        background-position: center
+        border: none
+        margin-right: 15px
+      .main_right_arrow_right
+        width: 60px
+        height: 60px
+        border-radius: 100%
+        background-color: #FEC110
+        background-image: url("../img/arrow-right.png")
+        background-repeat: no-repeat
+        background-position: center
+        border: none
+    .main_number-page
+      position: absolute
+      bottom: 65px
+      left: 630px
+      font-size: 35px
+      color: white
+      font-weight: lighter
+.about-company
+  background-color: #E4E4E4
+  padding: 0 130px 50px 130px
+  display: flex
+  justify-content: space-between
+  align-items: center
+  height: 650px
+  .about-company_container
+    border-top: 1px solid #B6B6B6
+    width: 100%
+    height: 65%
+    h5
+      font-size: 12px
+      margin: 15px 0
+    .about-company_content
+      display: flex
+      justify-content: space-between
+      align-items: start
+      margin: 70px 0 0 0
+      .container_element1
+        color: #FEC110
+        font-size: 90px
+        width: 48%
+      .container_element2
+        width: 48%
+        font-size: 28px
+        color: #2C2C2C
+        padding-top: 15px
+        .container_element2-item2
+          margin-top: 15px
+.services
+  color: #2C2C2C
+  padding: 0 130px 0 130px
+  background-color: #E4E4E4
+  height: 1310px
+  display: flex
+  flex-direction: column
+  align-items: center
+  .services_title
+    font-size: 67px
+    font-weight: normal
+    align-self: start
+  .services_media-container
+    display: flex
+    flex-wrap: wrap
+    justify-content: center
+    .services_content
+      background-color: white
+      margin: 20px 10px
+      padding: 0 0 40px 0
+      .services_content_img
+        width: 650px
+        max-width: 650px
+        height: 360px
+        max-height: 360px
+        background-color: #FEC110
+        img
+          object-fit: fill
+
+      .services_content_item1
+        font-size: 21px
+        margin: 40px 0 0 40px
+      .services_content_item2
+        color: #989898
+        font-size: 21px
+        margin: 0 0 40px 40px
+      .services_content_button
+        width: 40px
+        height: 40px
+        border-radius: 100%
+        background-color: #FEC110
+        border: none
+        position: relative
+        right: -498px
+        bottom: 16px
+
+
+
+
+@font-face
+  font-family: 'Arial Nova'
+  src: url('../fonts/ArialNova-Bold.ttf') format('truetype')
+@font-face
+  font-family: 'Arial Nova'
+  src: url('../fonts/ArialNova-Light.ttf') format('truetype')
+@font-face
+  font-family: 'Arial Nova'
+  src: url('../fonts/ArialNova.ttf') format('truetype')
