@@ -6,6 +6,7 @@
     <link href="css/style.css" rel="stylesheet">
     <meta name="viewport" content="width=device-width, user-scalable=no">
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
 </head>
 <body>
     <div class="wrapper">
@@ -13,12 +14,13 @@
         @@include('parts/_main.html')
         @@include('parts/_about-company.html')
         @@include('parts/_services.html')
-        <section class="guarantees"></section>
-        <section class="animation-block-logo"></section>
-        <section class="stocks"></section>
-        <section class="application"></section>
-        <section class="mobile-app"></section>
-        <footer></footer>
+        @@include('parts/_guarantees.html')
+        @@include('parts/_animation-block.html')
+        @@include('parts/_stocks.html')
+        @@include('parts/_reviews.html')
+        @@include('parts/_application.html')
+        @@include('parts/_mobile-app.html')
+        @@include('parts/_footer.html')
     </div>
 
 <script src="js/script.js"></script>

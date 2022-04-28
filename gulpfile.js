@@ -74,9 +74,9 @@ function watchFiles() {
     gulp.watch([path.watch.js], jsFunc);
     gulp.watch([path.watch.img], img);
 }
-function clean() {
-    return del(path.clean);
-}
+// function clean() {
+//     return del(path.clean);
+// }
 
 
 let build = gulp.series(clean, htmlFunc, gulp.parallel(cssFunc, jsFunc, img))
