@@ -1,11 +1,56 @@
 <footer>
+    <div class="shadow-modal-feedback">
+        <div class="modal-form_feedback">
+            <div class="header_a-application_content-close">
+                <div>
+                </div>
+            </div>
+            <div class="modal-form_feedback_container">
+                <p>Перезвоним в течении часа</p>
+                <form class="header_a-application_form" method="post" action="check.php">
+                    <div class="form_group">
+                        <label id="labelName">Ваше имя*</label>
+                        <input type="text" name="name" id="inputName" placeholder="Иван" required>
+                    </div>
+                    <div class="form_group">
+                        <label id="labelNum">Контактный телефон*</label>
+                        <input type="tel" name="number" id="inputNum" placeholder="Номер телефона*" required>
+                    </div>
+                    <div class="form_group_textarea">
+                        <textarea type="text" name="text" id="inputWriteToMe" placeholder="Комментарий" required></textarea>
+                    </div>
+                    <div class="form_group_submit">
+                        <label for=""><span class="secondary-color">Нажимая кнопку «Отправить заявку» вы даете согласие на</span> Обработку персональных данных</label>
+                        <button type="submit" name="submit" id="submit">Отправить заявку
+                            <div class="arrow"></div>
+                        </button>
+                    </div>
+                </form>
+            </div>
+            <div class="chipping">
+                <div class="close">
+                    <div></div>
+                </div>
+                <img src="img/success.png" alt="Успешно">
+                <p>Спасибо</p>
+                <p>Заявка успешно отправлена</p>
+                <p class="chipping_elem3">Наш менеджер свяжется с вами в течении 1 часа!</p>
+                <button class="button">Хорошо</button>
+            </div>
+        </div>
+    </div>
+
     <div class="footer_container-main">
         <div class="footer_content-left">
-            <a class="footer_elem-a">info@example.ru</a>
-            <p class="footer_elem-p secondary-color">Работаем для вас:</p>
-            <p class="footer_elem-p secondary-color">Ежедневно с 9:00 до 21:00</p>
-            <button class="footer_elem-button1">Обратный звонок</button>
-            <button class="footer_elem-button2">Контроль качества</button>
+            <div class="footer_text-block">
+                <a class="footer_elem-a">info@example.ru</a>
+                <p class="footer_elem-p elem-p-one secondary-color">Работаем для вас:</p>
+                <p class="footer_elem-p secondary-color">Ежедневно с 9:00 до 21:00</p>
+            </div>
+            <div class="footer_button-block">
+                <button class="footer_elem-button1 button">Обратный звонок</button>
+                <button class="footer_elem-button2">Контроль качества</button>
+            </div>
         </div>
         <div class="footer_content-right">
             <div class="footer_header">
@@ -16,35 +61,35 @@
                     <a href="#">Акции</a>
                     <a href="#">Контакты</a>
                 </nav>
-                <a>Личный кабинет <img> </a>
+                <a>Личный кабинет <div class="arrow-direction"></div></a>
             </div>
             <div class="footer_main">
                 <div class="footer_elem-left">
-                    <p class="footer_item-title secondary-color">Автоцентры</p>
-                    <p class="footer_item">Автосервис VOLVO</p>
-                    <p class="footer_item">Автосервис Land Rover</p>
-                    <p class="footer_item">Автосервис VAG</p>
-                    <p class="footer_item">Автосервис BMW</p>
-                    <p class="footer_item">Автосервис Mercedes</p>
-                    <p class="footer_item">Кузовной ремонт и детейлинг</p>
+                    <p class="footer_item-title">Автоцентры</p>
+                    <p class="footer_item"><a class="hover-a">Автосервис VOLVO</a></p>
+                    <p class="footer_item"><a class="hover-a">Автосервис Land Rover</a></p>
+                    <p class="footer_item"><a class="hover-a">Автосервис VAG</a></p>
+                    <p class="footer_item"><a class="hover-a">Автосервис BMW</a></p>
+                    <p class="footer_item"><a class="hover-a">Автосервис Mercedes</a></p>
+                    <p class="footer_item"><a class="hover-a">Кузовной ремонт и детейлинг</a></p>
                 </div>
                 <div class="footer_elem-right">
-                    <p class="footer_item-title secondary-color">Услуги</p>
-                    <p class="footer_item">Ремонт автомобиля</p>
-                    <p class="footer_item">Плановое ТО</p>
-                    <p class="footer_item">Диагностика</p>
-                    <p class="footer_item">Кузовоной ремонт и детейлинг</p>
-                    <p class="footer_item">Чип тюнинг</p>
+                    <p class="footer_item-title">Услуги</p>
+                    <p class="footer_item"><a class="hover-a">Ремонт автомобиля</a></p>
+                    <p class="footer_item"><a class="hover-a">Плановое ТО</a></p>
+                    <p class="footer_item"><a class="hover-a">Диагностика</a></p>
+                    <p class="footer_item"><a class="hover-a">Кузовоной ремонт и детейлинг</a></p>
+                    <p class="footer_item"><a class="hover-a">Чип тюнинг</a></p>
                 </div>
             </div>
         </div>
     </div>
     <div class="footer_container-bottom">
         <div class="footer_container-bottom_elem1">
-            <div><img src="../img/image-vk.png"></div>
-            <div><img src="../img/image-inst.png"></div>
-            <div><img src="../img/image-twitter.png"></div>
-            <div><img src="../img/image-youtube.png"></div>
+            <a href="#" class="footer_circle1"></a>
+            <a href="#" class="footer_circle2"></a>
+            <a href="#" class="footer_circle3"></a>
+            <a href="#" class="footer_circle4"></a>
         </div>
         <div class="footer_container-bottom_elem2">
             <div class="footer_content-bottom_item1">
@@ -60,7 +105,7 @@
         </div>
 
     </div>
-    <div class="footer_container-bottom-last secondary-color">
+    <div class="footer_container-bottom-last">
         <div>
             <p>© 2022 Специализированный автоцентр</p>
             <p>Дизайн и разработка - <span>Media Army</span></p>

@@ -31,7 +31,9 @@ let { src, dest } = require('gulp'),
     browserSync = require('browser-sync').create(),
     fileinclude = require('gulp-file-include'),
     del = require('del'),
-    sass = require('gulp-sass')(require('sass'));
+    sass = require('gulp-sass')(require('sass')),
+    clean_css = require('gulp-clean-css'),
+    rename = require('gulp-rename');
 
 function browserSyncFunction () {
     browserSync.init({
@@ -56,6 +58,13 @@ function cssFunc() {
             })
         )
         .pipe(dest(path.build.css))
+        .pipe(clean_css())
+        .pipe(
+            rename({
+                extname: ".min.css"
+            })
+        )
+        .pipe(dest(path.build.css))
         .pipe(browserSync.stream())
 }
 function jsFunc() {
@@ -74,9 +83,9 @@ function watchFiles() {
     gulp.watch([path.watch.js], jsFunc);
     gulp.watch([path.watch.img], img);
 }
-// function clean() {
-//     return del(path.clean);
-// }
+function clean() {
+    return del(path.clean);
+}
 
 
 let build = gulp.series(clean, htmlFunc, gulp.parallel(cssFunc, jsFunc, img))

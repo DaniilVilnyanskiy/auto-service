@@ -1,8 +1,19 @@
 <section class="stocks">
-    <h1>Наши акции</h1>
+    <div class="stocks_header">
+        <h1>Наши акции</h1>
+        <button class="stocks_button button">Все акции<div class="arrow"></div> </button>
+    </div>
     <div class="stocks_container active" id="stocks1">
         <div class="stocks_container_elem1">
-            <img src="../img/image-stocks1.png" alt="Фото акций">
+            <img src="img/image-stocks1.png" alt="Фото акций">
+            <div class="stocks_container_elem1_button">
+                <button class="stocks_arrow-left" id="stocks-left">
+                    <div class="arrow-direction"></div>
+                </button>
+                <button class="stocks_arrow-right" id="stocks-right">
+                    <div class="arrow-direction"></div>
+                </button>
+            </div>
         </div>
         <div class="stocks_container_elem2">
             <p class="stocks_container_elem2_item1">Дарим 1000 бонусов за шиномонтаж и хранение</p>
@@ -15,8 +26,8 @@
             </div>
         </div>
     </div>
-    <div class="stocks_container two" id="stocks2">
-        <div class="stocks_container_elem1"><img src="../img/image-stocks2.png" alt="Фото акций"></div>
+    <div class="stocks_container" id="stocks2">
+        <div class="stocks_container_elem1"><img src="img/image-stocks2.png" alt="Фото акций"></div>
         <div class="stocks_container_elem2">
             <p class="stocks_container_elem2_item1">Специальное предложение для владельцев VOLVO XC 90</p>
             <span class="secondary-color">18 апреля</span>
@@ -36,10 +47,10 @@
         </div>
         <div class="flex-content-right">
             <button class="item3_arrow-left" id="stocks-left">
-                <div></div>
+                <div class="arrow-direction"></div>
             </button>
             <button class="item3_arrow-right" id="stocks-right">
-                <div></div>
+                <div class="arrow-direction"></div>
             </button>
         </div>
     </div>

@@ -3,8 +3,10 @@
         <img src="img/header-logo.png" alt="Логотип">
         <h1>АВТОЦЕНТР.</h1>
     </div>
-    <nav>
-        <a>Услуги</a>
+    <nav class="header_nav">
+        <a class="nav_hover-a">Услуги
+            <div class="arrow"></div>
+        </a>
         <a>О компании</a>
         <a>Гарантии</a>
         <a>Новости</a>
@@ -12,6 +14,7 @@
         <a>Контакты</a>
     </nav>
     <div class="header_right">
+        <a class="header_a-application-adapt">Запись на сервис</a>
         <div class="burger-container" id="burgerMenu">
             <div class="bar1"></div>
             <div class="bar2"></div>
@@ -22,7 +25,115 @@
 
 
 </header>
-<div class="header_right_slideDown">
-    <div>123</div>
-    <div>123</div>
+
+<div class="header_nav_arrow_container">
+    <div>
+        <p>Ремонт автомобиля</p>
+        <p>Плановое ТО</p>
+        <p>Диагностика и ремонт</p>
+        <p>Чип тюнинг</p>
+    </div>
+</div>
+
+<div class="burger_slideDown">
+    <nav class="slideDown_nav">
+        <a>Услуги</a>
+        <a>О компании</a>
+        <a>Гарантии</a>
+        <a>Новости</a>
+        <a>Акции</a>
+        <a>Контакты</a>
+    </nav>
+    <div class="burger_content_slideDown">
+
+        <div class="burger_element1">
+            <div class="burger_element1_item1">
+                <a href="+7 (999) 123-45-67" class="number">+7 (999) 123-45-67</a>
+                <a href="info@example.ru" class="email primary-color">info@example.ru</a>
+                <p class="secondary-color">Работаем для вас:</p>
+                <p class="secondary-color">Ежедневно с 9:00 до 21:00</p>
+            </div>
+            <div class="burger_element1_item2">
+                <div class="burger_element1_item2_address">
+                    <div>
+                        <h3 class="primary-color">АДРЕС АВТОЦЕНТРА</h3>
+                        <address class="secondary-color">Екатеринбург, ул. Московский тракт 7 км, 2<br>
+                            +7 (999) 123-45-67</address>
+                    </div>
+                    <div>
+                        <h3 class="primary-color">ЦЕНТР КУЗОВНОГО РЕМОНТА</h3>
+                        <address class="secondary-color">Екатеринбург, ул. Московский тракт 7 км, 2<br>
+                            +7 (999) 123-45-67</address>
+                    </div>
+                </div>
+
+                <div class="burger_element1_item2-flex">
+                    <a class="flex_circle1"></a>
+                    <a class="flex_circle2"></a>
+                    <a class="flex_circle3"></a>
+                    <a class="flex_circle4"></a>
+                </div>
+            </div>
+
+        </div>
+        <div class="burger_element2 primary-color">
+            <div>
+                <p class="burger_element2_title secondary-color">Автоцентры</p>
+                <p><a class="hover-a" tabindex="1">Автосервис VOLVO</a></p>
+                <p><a class="hover-a" tabindex="2">Автосервис Land Rover</a></p>
+                <p><a class="hover-a" tabindex="3">Автосервис VAG</a></p>
+                <p><a class="hover-a" tabindex="4">Автосервис BMW</a></p>
+                <p><a class="hover-a" tabindex="5">Автосервис Mercedes</a></p>
+                <p><a class="hover-a" tabindex="6">Кузовной ремонт и детейлинг</a></p>
+                <p class="burger_element2_bottom">Личный кабинет</p>
+            </div>
+            <p>Условия конфиденциальности</p>
+        </div>
+
+    </div>
+</div>
+<div class="shadow-modal">
+    <div class="header_a-application_container" id="slide-application">
+        <div class="header_a-application_content-close">
+            <div>
+
+            </div>
+        </div>
+        <div class="header_a-application_content">
+            <p>Запись на сервис</p>
+            <form class="header_a-application_form" method="post" action="check.php">
+                <div class="form_group">
+                    <label id="labelName">Ваше имя*</label>
+                    <input type="text" name="name" id="inputName" placeholder="Иван" required>
+                </div>
+                <div class="form_group">
+                    <label id="labelNum">Контактный телефон*</label>
+                    <input type="tel" name="number" id="inputNum" placeholder="Номер телефона*" required>
+                </div>
+                <div class="form_group">
+                    <label id="carBrand">Марка автомобиля*</label>
+                    <select class="select" name="brand" required>
+                        <option disabled>Выберите марку автомобиля*</option>
+                        <option value="Volvo">Volvo</option>
+                        <option value="BMW">BMW</option>
+                        <option value="AUDI">AUDI</option>
+                        <option value="Volkswagen">Volkswagen</option>
+                        <option value="Skoda">Skoda</option>
+                        <option value="Другой">Другой</option>
+                    </select>
+                </div>
+                <div class="form_group_textarea">
+                    <textarea type="text" name="text" id="inputWriteToMe" placeholder="Краткое описание проблемы" required></textarea>
+                </div>
+                <div class="form_group_submit">
+                    <label for=""><span class="secondary-color">Нажимая кнопку «Отправить заявку» вы даете согласие на</span> Обработку персональных данных</label>
+                    <button type="submit" name="submit" id="submit">Отправить заявку
+                        <div class="arrow"></div>
+                    </button>
+                </div>
+
+
+            </form>
+        </div>
+    </div>
 </div>
