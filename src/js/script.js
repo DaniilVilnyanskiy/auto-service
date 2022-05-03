@@ -48,37 +48,18 @@ window.onload = function () {
 
     $('#left, #right').on('click', function reviewsShowFunc() {
         if ($(elements1).hasClass('reviewsShow')) {
-            $(elements1).fadeOut(500).removeClass('reviewsShow');
-            $(elements2).fadeIn(500).addClass('reviewsShow');
+            $(elements1).fadeOut(500, function () {
+                $(this).removeClass('reviewsShow');
+                $(elements2).fadeIn(500).addClass('reviewsShow').css('display','flex');
+            })
+
         } else {
-            $(elements2).fadeOut(500).removeClass('reviewsShow');
-            $(elements1).fadeIn(500).addClass('reviewsShow');
-        }
-    })
-
-    // $('#stocks-right, #stocks-left').on('click', function myFuncRight (){
-    //     if ($('#stocks1').hasClass('active')) {
-    //         $('#stocks1').removeClass('active');
-    //         $('#stocks2').addClass('active');
-    //     } else {
-    //         $('#stocks2').removeClass('active');
-    //         $('#stocks1').addClass('active');
-    //     }
-    // });
-
-
-////*  функция на изменение высоты контейнера под слайд в section main  *//////////
-    heightFunc();
-    window.addEventListener('resize', heightFunc);
-    function heightFunc () {
-        if ( $(window).width() < 780 ) {
-            let height = $('.main_right_slider').height();
-            console.log(height)
-            $('.main_right-container').css({
-                'height': height
+            $(elements2).fadeOut(500, function () {
+                $(this).removeClass('reviewsShow');
+                $(elements1).fadeIn(500).addClass('reviewsShow').css('display','flex');
             })
         }
-    }
+    })
 
 
 ////*  слайдер в начале  *///////////
@@ -88,17 +69,22 @@ window.onload = function () {
     let arrow_right = document.querySelector('.main_right_arrow_right');
     let widthSlider = $(slider).width(),
         widthPartSlider = widthSlider / 3;
+    let numberPage = $('#numberPage');
 
-
+    $(numberPage).text('1');
     function right() {
         let position = parseInt(getComputedStyle(slider)['right'], 10);
 
+
         if (position === (-(widthSlider - widthPartSlider))) {
             slider.style.right = position + widthPartSlider + 'px';
+            $(numberPage).text('2');
         } else if (position === (-(widthSlider - (widthPartSlider * 2) ))) {
             slider.style.right = position + widthPartSlider + 'px'
+            $(numberPage).text('3');
         } else if (position === 0) {
             slider.style.right = '-' + (widthPartSlider * 2 + 'px');
+            $(numberPage).text('1');
         }
     }
     function left() {
@@ -106,10 +92,13 @@ window.onload = function () {
 
         if (position === (-(widthSlider - widthPartSlider))) {
             slider.style.right = position + (widthPartSlider * 2);
+            $(numberPage).text('3');
         } else if (position === 0) {
             slider.style.right = position - widthPartSlider + 'px'
+            $(numberPage).text('2');
         } else if (position === (-(widthSlider - (widthPartSlider * 2) ))) {
             slider.style.right = position - widthPartSlider + 'px'
+            $(numberPage).text('1');
         }
     }
 
@@ -165,7 +154,7 @@ window.onload = function () {
 
     let slideBlock = $('.header_a-application_container'),
         closeButton = $('.header_a-application_content-close'),
-        button_for_open_slideBlock = $('.header_a-application');
+        button_for_open_slideBlock = $('.header_a-application, .header_a-application-adapt');
 
     function openSlideBlock() {                                      /*     функция по клику на "Запись на сервис" появления формы справа        */
         $(document.body).addClass('is-open-modal');
@@ -184,7 +173,7 @@ window.onload = function () {
         }, 500, "linear");
     }
 
-    $(document).on('click', '.header_a-application', function () {   /*     клик по кнопке application      */
+    $(document).on('click', '.header_a-application, .header_a-application-adapt', function () {   /*     клик по кнопке application      */
         openSlideBlock()
     })
     $(closeButton).on('click', function () {        /*   клик по кнопке close  */
@@ -194,7 +183,8 @@ window.onload = function () {
         if (!(
                ($(e.target).parents('.header_a-application_container').length)
             || ($(e.target).hasClass('header_a-application_container'))
-            || ($(e.target).hasClass('header_a-application')))
+            || ($(e.target).hasClass('header_a-application'))
+            || ($(e.target).hasClass('header_a-application-adapt')))
         ) {
             closeSlideBlock();
         }
@@ -293,6 +283,19 @@ window.onload = function () {
         });
     });
 
+////*  функция на изменение высоты контейнера под слайд в section main  *//////////
+    heightFunc();
+    window.addEventListener('resize', heightFunc, parallax);
+    function heightFunc () {
+        if ( $(window).width() < 780 ) {
+            let height = $('.main_right_slider').height();
+            console.log(height)
+            $('.main_right-container').css({
+                'height': height
+            })
+        }
+    }
+
 
 //////* Эффект параллакса после section guarantees *////////////////////
 
@@ -301,9 +304,17 @@ window.onload = function () {
          parallax_block = document.querySelector('.animation_container');
      function parallax(event) {
          animation_block.forEach(animation_element => {
-             animation_element.style.transform = `translateX(${(event.clientX/10)-95}px)`;
+             if ( $(window).width() > 1050 ) {
+                 animation_element.style.transform = `translateX(${(event.clientX/10)-95}px)`;
+                 $(document).on('mouseleave','.animation-block-logo',function(event){
+                     $(animation_block).css('transform', 'translateX(0px)');
+                 })
+             } else if( $(window).width() < 1050 ) {
+                 animation_element.style.transform = `translateX(${(event.clientX/2)-210}px)`;
+             }
+
          });
-         // var blah = animation_block; цикл, обрабатывающий наведение на определенный элемент. Не работает в связки с функцией parallax
+         // var blah = animation_block; цикл, обрабатывающий наведение на определенный элемент. Не работает в связки с функцией parallax. Пока не решил это
          //
          // for (var x = 0; x < blah.length; x++) {
          //     blah[x].addEventListener("mousemove", function(e) {
@@ -314,8 +325,9 @@ window.onload = function () {
          // }
      }
      $(document).on('mousemove','.animation_container_element',function(event){
-         parallax(event)
+         parallax(event);
      })
+
      // document.querySelectorAll('.animation_container_element').addEventListener('mousemove', parallax);
     // Этот аналог на js не может выбрать несколько селекторов, только один. На jquery выбирает)
 
@@ -324,15 +336,22 @@ window.onload = function () {
 //////*  смена контента section stocks (акции)  */////////////////////////////////////////////
 
     $('#stocks-right, #stocks-left').on('click', function myFuncRight (){
+        console.log(this)
         if ($('#stocks1').hasClass('active')) {
-            $('#stocks1').removeClass('active');
-            $('#stocks2').addClass('active');
+            $('#stocks1').fadeOut(500, function () {
+                $(this).removeClass('active');
+                $('#stocks2').fadeIn(500).addClass('active').css('display','flex');
+            })
         } else {
-            $('#stocks2').removeClass('active');
-            $('#stocks1').addClass('active');
+            $('#stocks2').fadeOut(500, function () {
+                $(this).removeClass('active');
+                $('#stocks1').fadeIn(500).addClass('active').css('display','flex');
+            })
         }
     });
 //////*   Последняя форма   *//////
+
+
     let fadeContainer = $('.modal-form_feedback'),
         fadeBlock = $('.modal-form_feedback_container'),
         closeButtonFadeBlock = $('.header_a-application_content-close'),
