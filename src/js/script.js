@@ -1,5 +1,25 @@
 
 window.onload = function () {
+////*  функция на изменение высоты контейнера под слайд в section main  *//////////
+    heightFunc();
+    window.addEventListener('resize', heightFunc, parallax);
+    function heightFunc () {
+        if ( $(window).width() < 780 ) {
+            let height = $('.main_right_slider').height();
+            $('.main_right-container').css({
+                'height': height
+            })
+        }
+        // if ( $(window).width() > 1258 ) {
+        //     let height = $('.main_right_slider').height();
+        //     $('.main').css({
+        //         'height': height
+        //     })
+        // } else {
+        //     $('.main').css('height', 'auto')
+        // }
+    }
+
 
 //////*  количество звёзд рейтинга) в section reviews  *//////
 
@@ -61,37 +81,111 @@ window.onload = function () {
         }
     })
 
+    /*/////////////////////////////////*/
+
+    const images = document.querySelectorAll('.slider-container img');
+    const sliderContainer = document.querySelector('.slider-container');
+    let count = 0;
+    let width;
+
+
+    let numberPage = $('#numberPage');
+    let arrow_left = document.querySelector('.main_right_arrow_left');
+    let arrow_right = document.querySelector('.main_right_arrow_right');
+
+    $(numberPage).text('1');
+    function init() {
+        console.log('resize');
+        width = document.querySelector('.slider-container').offsetWidth;
+        // sliderContainer.style.width = width * images.length + 'px';
+        // images.forEach(item => {
+        //     item.style.width = width + 'px';
+        //     item.style.height = 'auto';
+        // });
+        rollSlider();
+    }
+
+    init();
+    // window.addEventListener('resize', init);
+
+    function next() {
+        count++;
+        if (count >= images.length) {
+            count = 0;
+        }
+        $(numberPage).text(count + 1);
+        rollSlider();
+    }
+
+    function prev() {
+        count--;
+        if (count < 0) {
+            count = images.length - 1;
+        }
+        $(numberPage).text(count + 1);
+        rollSlider();
+    }
+
+    function rollSlider() {
+        document.querySelector('.img1').style.transform = 'translate(-' + count * width + 'px)';
+        document.querySelector('.img2').style.transform = 'translate(-' + count * width + 'px)';
+        document.querySelector('.img3').style.transform = 'translate(-' + count * width + 'px)';
+    }
+
+
+
+    arrow_right.onclick = function () {
+        next()
+    }
+    arrow_left.onclick = function () {
+        prev()
+
+    }
 
 ////*  слайдер в начале  *///////////
 
-    let slider = document.querySelector('.main_right_slider');
-    let arrow_left = document.querySelector('.main_right_arrow_left');
-    let arrow_right = document.querySelector('.main_right_arrow_right');
-    let widthSlider = $(slider).width(),
-        widthPartSlider = widthSlider / 3;
-    let numberPage = $('#numberPage');
+    // let slider = document.querySelector('.main_right_slider');
 
-    $(numberPage).text('1');
-    function right() {
-        let position = parseInt(getComputedStyle(slider)['right'], 10);
+    // let widthSlider = Math.round($(slider).width() - 1),
+    //     widthPartSlider = Math.round(widthSlider / 3);
+    //
+    //
+    //
+    // $(numberPage).text('1');
+    //
+    // function right() {
+    //     let position = parseInt(getComputedStyle(slider)['right'], 10);
+    //
+    //     console.log(widthPartSlider)
+    //     console.log(position)
+    //     console.log(widthSlider)
+    //
+    //     console.log(position === (- ((widthSlider - widthPartSlider - 1) || (widthSlider - widthPartSlider + 1) || (widthSlider - widthPartSlider)) ))
 
 
-        if (position === (-(widthSlider - widthPartSlider))) {
-            slider.style.right = position + widthPartSlider + 'px';
-            $(numberPage).text('2');
-        } else if (position === (-(widthSlider - (widthPartSlider * 2) ))) {
-            slider.style.right = position + widthPartSlider + 'px'
-            $(numberPage).text('3');
-        } else if (position === 0) {
-            slider.style.right = '-' + (widthPartSlider * 2 + 'px');
-            $(numberPage).text('1');
-        }
-    }
+        // if (position == (-(
+        //     widthSlider - widthPartSlider
+        //     || widthSlider - widthPartSlider + 1
+        //     || widthSlider - widthPartSlider - 1
+        // ))) {
+        //     console.log('r')
+        // }
+        // if (position === (-(widthSlider - widthPartSlider))) {
+        //     // slider.style.right = position + widthPartSlider + 'px';
+        //     // $(numberPage).text('2');
+        //     // console.log(position + ' первый')
+        // } else if (position === (-(Math.floor(widthSlider -(widthPartSlider * 2) )))) {
+        //     slider.style.right = '0px'
+        //     $(numberPage).text('3');
+        // } else if (position === 0) {
+        //     slider.style.right = '-' + (widthPartSlider * 2 + 'px');
+        //     $(numberPage).text('1');
+        // }
+    // }
     function left() {
         let position = parseInt(getComputedStyle(slider)['right'], 10);
-
         if (position === (-(widthSlider - widthPartSlider))) {
-            slider.style.right = position + (widthPartSlider * 2);
+            slider.style.right = position + (widthPartSlider * 2) + 'px';
             $(numberPage).text('3');
         } else if (position === 0) {
             slider.style.right = position - widthPartSlider + 'px'
@@ -102,12 +196,7 @@ window.onload = function () {
         }
     }
 
-    arrow_right.onclick = function () {
-        right()
-    }
-    arrow_left.onclick = function () {
-        left()
-    }
+
 
 
 
@@ -282,19 +371,6 @@ window.onload = function () {
             }
         });
     });
-
-////*  функция на изменение высоты контейнера под слайд в section main  *//////////
-    heightFunc();
-    window.addEventListener('resize', heightFunc, parallax);
-    function heightFunc () {
-        if ( $(window).width() < 780 ) {
-            let height = $('.main_right_slider').height();
-            console.log(height)
-            $('.main_right-container').css({
-                'height': height
-            })
-        }
-    }
 
 
 //////* Эффект параллакса после section guarantees *////////////////////

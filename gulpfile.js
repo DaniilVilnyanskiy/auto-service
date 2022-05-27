@@ -93,12 +93,12 @@ function watchFiles() {
     gulp.watch([path.watch.img], img);
     gulp.watch([path.watch.php], phpFunc);
 }
-function clean() {
-    return del(path.clean);
-}
+// function clean() {
+//     return del(path.clean);
+// }
 
 
-let build = gulp.series(clean, htmlFunc, gulp.parallel(cssFunc, jsFunc, img), phpFunc)
+let build = gulp.series(/*clean,*/ htmlFunc, gulp.parallel(cssFunc, jsFunc, img), phpFunc)
 let watch = gulp.parallel(build, watchFiles, browserSyncFunction);
 
 
